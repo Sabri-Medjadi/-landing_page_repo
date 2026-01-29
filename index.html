@@ -1,67 +1,46 @@
-<body class="bg-[#f8fafc] text-slate-900">
-    <div id="app" class="min-h-screen">
-        <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="setView('home')">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-                        </div>
-                        <span class="font-extrabold text-2xl tracking-tighter text-slate-900">Cogni<span class="text-indigo-600">Store</span></span>
-                    </div>
-
-                    <div class="hidden md:flex items-center gap-8">
-                        <button onclick="setView('home')" id="nav-home" class="text-indigo-600 font-bold text-sm">المتجر الذكي</button>
-                        <a href="#products" class="text-slate-500 hover:text-indigo-600 text-sm font-semibold transition-colors">الحلول الجاهزة</a>
-                        <button onclick="setView('contact')" id="nav-contact" class="text-slate-500 hover:text-indigo-600 text-sm font-semibold transition-colors">استشارة تقنية</button>
-                        
-                        <div class="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
-                            <button onclick="setLang('en')" class="lang-btn en px-3 py-1 rounded-full text-[10px] font-bold">EN</button>
-                            <button onclick="setLang('ar')" class="lang-btn ar px-3 py-1 rounded-full text-[10px] font-bold bg-indigo-600 text-white">AR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <section class="pt-40 pb-24 px-4 text-center bg-gradient-to-b from-white to-[#f8fafc]">
-            <div class="max-w-4xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold mb-6 border border-indigo-100 uppercase tracking-widest">
-                    AI-Driven Excellence
-                </div>
-                <h1 id="hero-title" class="text-5xl md:text-7xl font-black mb-8 tracking-tight text-slate-900 leading-[1.1]">
-                    حوّل أعمالك إلى منظومة <span class="text-indigo-600">ذكية</span>
-                </h1>
-                <p id="hero-subtitle" class="text-xl text-slate-500 mb-12 font-medium max-w-2xl mx-auto leading-relaxed">
-                    متجر CogniStore يوفر لك قوالب أتمتة متطورة وحلول ذكاء اصطناعي مصممة للنمو السريع.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-5">
-                    <a href="#products" id="hero-cta-primary" class="px-10 py-5 bg-indigo-600 text-white rounded-2xl font-bold shadow-xl shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-1 transition-all">تصفح المكتبة الذكية</a>
-                    <button onclick="setView('contact')" class="px-10 py-5 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all">اطلب حلاً مخصصاً</button>
-                </div>
-            </div>
-        </section>
-        
-        </div>
-
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CogniStore | Premium Automation</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    
     <script>
-        // Update your translations object's names
-        const translations = {
-            en: {
-                title: "Cognitive Business Automation",
-                sub: "CogniStore provides advanced AI templates and automation flows designed for rapid scale.",
-                navHome: "Smart Store", navContact: "Tech Consult",
-                heroCta: "Explore Library",
-                dir: 'ltr'
-            },
-            ar: {
-                title: "حوِّل أعمالك إلى منظومة ذكية",
-                sub: "متجر CogniStore يوفر لك قوالب أتمتة متطورة وحلول ذكاء اصطناعي مصممة للنمو السريع.",
-                navHome: "المتجر الذكي", navContact: "استشارة تقنية",
-                heroCta: "تصفح المكتبة الذكية",
-                dir: 'rtl'
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Kufi Arabic', 'sans-serif'],
+                    },
+                }
             }
-        };
-        // ... include previous logic ...
+        }
     </script>
-</body>
+    <style>
+        body { font-family: 'Inter', 'Noto Kufi Arabic', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <nav class="p-6 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg"></div>
+                <span class="text-2xl font-black tracking-tighter">Cogni<span class="text-indigo-600">Store</span></span>
+            </div>
+            <div class="space-x-4 space-x-reverse">
+                <button class="font-bold text-slate-600">English</button>
+                <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold">ابدأ الآن</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-20 text-center">
+        <h1 class="text-6xl font-black text-slate-900 mb-4">متجر <span class="text-indigo-600">CogniStore</span></h1>
+        <p class="text-xl text-slate-500">ذكاء اصطناعي يفهم عملك.</p>
+    </header>
+    </body>
+</html>
