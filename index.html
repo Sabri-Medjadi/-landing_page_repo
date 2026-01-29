@@ -1,185 +1,67 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AISaaS Store - Premium Automation Marketplace</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .rtl { direction: rtl; }
-        .ltr { direction: ltr; }
-        .product-card:hover { transform: translateY(-5px); }
-        .badge-premium { background: linear-gradient(45deg, #0f172a, #334155); }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-[#f8fafc] text-slate-900">
     <div id="app" class="min-h-screen">
-        <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
                     <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="setView('home')">
-                        <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold">AS</div>
-                        <span class="font-bold text-xl tracking-tight">AISaaS<span class="text-blue-600">Store</span></span>
+                        <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <span class="font-extrabold text-2xl tracking-tighter text-slate-900">Cogni<span class="text-indigo-600">Store</span></span>
                     </div>
 
                     <div class="hidden md:flex items-center gap-8">
-                        <button onclick="setView('home')" id="nav-home" class="font-bold text-sm">المتجر</button>
-                        <a href="#products" class="text-slate-500 hover:text-slate-900 text-sm font-medium">المنتجات</a>
-                        <button onclick="setView('contact')" id="nav-contact" class="text-slate-500 hover:text-slate-900 text-sm font-medium">الدعم الفني</button>
+                        <button onclick="setView('home')" id="nav-home" class="text-indigo-600 font-bold text-sm">المتجر الذكي</button>
+                        <a href="#products" class="text-slate-500 hover:text-indigo-600 text-sm font-semibold transition-colors">الحلول الجاهزة</a>
+                        <button onclick="setView('contact')" id="nav-contact" class="text-slate-500 hover:text-indigo-600 text-sm font-semibold transition-colors">استشارة تقنية</button>
                         
-                        <div class="flex items-center bg-slate-100 rounded-full p-1">
+                        <div class="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
                             <button onclick="setLang('en')" class="lang-btn en px-3 py-1 rounded-full text-[10px] font-bold">EN</button>
-                            <button onclick="setLang('ar')" class="lang-btn ar px-3 py-1 rounded-full text-[10px] font-bold bg-slate-900 text-white">AR</button>
+                            <button onclick="setLang('ar')" class="lang-btn ar px-3 py-1 rounded-full text-[10px] font-bold bg-indigo-600 text-white">AR</button>
                         </div>
-
-                        <button class="relative p-2 text-slate-700 hover:bg-slate-100 rounded-full transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-                            <span class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                        </button>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <main class="pt-20">
-            <section class="py-20 px-4 text-center bg-white border-b border-slate-100">
-                <div class="max-w-4xl mx-auto">
-                    <h1 id="hero-title" class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-900">
-                        سوق أتمتة الأعمال المتميز
-                    </h1>
-                    <p id="hero-subtitle" class="text-lg text-slate-500 mb-10 font-light">
-                        اشترِ قوالب جاهزة لـ n8n و Chatwoot و Typebot. ابدأ أتمتة مشروعك في دقائق.
-                    </p>
-                    <div class="flex justify-center gap-4">
-                        <a href="#products" id="hero-cta-primary" class="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:shadow-lg transition-all">تصفح المنتجات</a>
-                    </div>
+        <section class="pt-40 pb-24 px-4 text-center bg-gradient-to-b from-white to-[#f8fafc]">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold mb-6 border border-indigo-100 uppercase tracking-widest">
+                    AI-Driven Excellence
                 </div>
-            </section>
-
-            <section id="products" class="py-20 max-w-7xl mx-auto px-4">
-                <div class="flex justify-between items-end mb-12">
-                    <div>
-                        <h2 id="prod-heading" class="text-3xl font-bold">أحدث القوالب والحلول</h2>
-                        <p id="prod-subheading" class="text-slate-500">حلول جاهزة للنشر الفوري</p>
-                    </div>
+                <h1 id="hero-title" class="text-5xl md:text-7xl font-black mb-8 tracking-tight text-slate-900 leading-[1.1]">
+                    حوّل أعمالك إلى منظومة <span class="text-indigo-600">ذكية</span>
+                </h1>
+                <p id="hero-subtitle" class="text-xl text-slate-500 mb-12 font-medium max-w-2xl mx-auto leading-relaxed">
+                    متجر CogniStore يوفر لك قوالب أتمتة متطورة وحلول ذكاء اصطناعي مصممة للنمو السريع.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-5">
+                    <a href="#products" id="hero-cta-primary" class="px-10 py-5 bg-indigo-600 text-white rounded-2xl font-bold shadow-xl shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-1 transition-all">تصفح المكتبة الذكية</a>
+                    <button onclick="setView('contact')" class="px-10 py-5 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all">اطلب حلاً مخصصاً</button>
                 </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all shadow-sm hover:shadow-xl">
-                        <div class="h-48 bg-slate-100 flex items-center justify-center relative">
-                            <span class="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded">الأكثر مبيعاً</span>
-                            <div class="text-4xl">🤖</div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg">قالب خدمة عملاء AI كامل</h3>
-                                <span class="text-blue-600 font-bold">$49</span>
-                            </div>
-                            <p class="text-slate-500 text-sm mb-6 font-light">قالب متكامل يربط Chatwoot مع Gemini و n8n للرد الآلي الذكي.</p>
-                            <button class="w-full py-3 bg-slate-900 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                إضافة للسلة
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all shadow-sm hover:shadow-xl">
-                        <div class="h-48 bg-slate-100 flex items-center justify-center relative">
-                            <div class="text-4xl">📱</div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg">نظام أتمتة واتساب</h3>
-                                <span class="text-blue-600 font-bold">$89</span>
-                            </div>
-                            <p class="text-slate-500 text-sm mb-6 font-light">أرسل تنبيهات تلقائية لعملائك عبر Evolution API و n8n.</p>
-                            <button class="w-full py-3 bg-slate-900 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                إضافة للسلة
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all shadow-sm hover:shadow-xl">
-                        <div class="h-48 bg-slate-100 flex items-center justify-center relative">
-                            <div class="text-4xl">⚙️</div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg">خدمة تثبيت السيرفر</h3>
-                                <span class="text-blue-600 font-bold">$199</span>
-                            </div>
-                            <p class="text-slate-500 text-sm mb-6 font-light">تثبيت احترافي لجميع الأنظمة على خادمك الخاص (VPS).</p>
-                            <button class="w-full py-3 bg-slate-900 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                احجز الآن
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="bg-white border-t border-slate-200 py-12 text-center text-slate-400 text-sm">
-            <p id="footer-rights">© 2026 AISaaS Store. جميع الحقوق محفوظة.</p>
-        </footer>
-    </div>
+            </div>
+        </section>
+        
+        </div>
 
     <script>
+        // Update your translations object's names
         const translations = {
             en: {
-                title: "Premium Automation Marketplace",
-                sub: "Buy ready-made templates for n8n, Chatwoot, and Typebot. Deploy in minutes.",
-                navHome: "Store", navContact: "Support",
-                heroCta: "Browse Shop",
-                prodH: "Latest Solutions",
-                prodSub: "Ready-to-deploy digital assets",
-                rights: "© 2026 AISaaS Store. All rights reserved.",
+                title: "Cognitive Business Automation",
+                sub: "CogniStore provides advanced AI templates and automation flows designed for rapid scale.",
+                navHome: "Smart Store", navContact: "Tech Consult",
+                heroCta: "Explore Library",
                 dir: 'ltr'
             },
             ar: {
-                title: "سوق أتمتة الأعمال المتميز",
-                sub: "اشترِ قوالب جاهزة لـ n8n و Chatwoot و Typebot. ابدأ أتمتة مشروعك في دقائق.",
-                navHome: "المتجر", navContact: "الدعم الفني",
-                heroCta: "تصفح المنتجات",
-                prodH: "أحدث القوالب والحلول",
-                prodSub: "حلول جاهزة للنشر الفوري",
-                rights: "© 2026 AISaaS Store. جميع الحقوق محفوظة.",
+                title: "حوِّل أعمالك إلى منظومة ذكية",
+                sub: "متجر CogniStore يوفر لك قوالب أتمتة متطورة وحلول ذكاء اصطناعي مصممة للنمو السريع.",
+                navHome: "المتجر الذكي", navContact: "استشارة تقنية",
+                heroCta: "تصفح المكتبة الذكية",
                 dir: 'rtl'
             }
         };
-
-        function setLang(l) {
-            const t = translations[l];
-            document.documentElement.dir = t.dir;
-            document.body.className = t.dir === 'rtl' ? 'rtl bg-slate-50' : 'ltr bg-slate-50';
-            
-            document.getElementById('hero-title').innerText = t.title;
-            document.getElementById('hero-subtitle').innerText = t.sub;
-            document.getElementById('nav-home').innerText = t.navHome;
-            document.getElementById('nav-contact').innerText = t.navContact;
-            document.getElementById('hero-cta-primary').innerText = t.heroCta;
-            document.getElementById('prod-heading').innerText = t.prodH;
-            document.getElementById('prod-subheading').innerText = t.prodSub;
-            document.getElementById('footer-rights').innerText = t.rights;
-
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('bg-slate-900', 'text-white'));
-            document.querySelector(`.lang-btn.${l}`).classList.add('bg-slate-900', 'text-white');
-        }
-
-        // Chatwoot remains active
-        (function(d,t) {
-            var BASE_URL="https://chatwoot.panel.sabrimed.shop";
-            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=BASE_URL+"/packs/js/sdk.js";
-            g.defer = true; g.async = true;
-            s.parentNode.insertBefore(g,s);
-            g.onload=function(){
-                window.chatwootSDK.run({
-                    websiteToken: 'G1L1GrBoV3NZRGxZPrdj9gsR',
-                    baseUrl: BASE_URL
-                })
-            }
-        })(document,"script");
+        // ... include previous logic ...
     </script>
 </body>
-</html>
