@@ -3,44 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CogniStore | Premium Automation</title>
-    
+    <title>CogniStore | Premium Automation Marketplace</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Kufi+Arabic:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        brand: {
+                            primary: '#6366f1', // Indigo 600
+                            dark: '#0f172a',    // Slate 900
+                        }
+                    },
                     fontFamily: {
                         sans: ['Inter', 'Noto Kufi Arabic', 'sans-serif'],
-                    },
+                    }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', 'Noto Kufi Arabic', sans-serif; }
+        body { font-family: 'Inter', 'Noto Kufi Arabic', sans-serif; scroll-behavior: smooth; }
+        .rtl { direction: rtl; }
+        .ltr { direction: ltr; }
+        .product-card:hover { transform: translateY(-8px); }
+        .gradient-text { background: linear-gradient(to right, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="bg-slate-50">
+<body class="bg-[#f8fafc] text-slate-900">
+    <div id="app" class="min-h-screen">
+        <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="setView('home')">
+                        <div class="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white font-black shadow-lg shadow-indigo-200">CS</div>
+                        <span class="font-black text-2xl tracking-tighter">Cogni<span class="text-brand-primary">Store</span></span>
+                    </div>
 
-    <nav class="p-6 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg"></div>
-                <span class="text-2xl font-black tracking-tighter">Cogni<span class="text-indigo-600">Store</span></span>
-            </div>
-            <div class="space-x-4 space-x-reverse">
-                <button class="font-bold text-slate-600">English</button>
-                <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold">ابدأ الآن</button>
-            </div>
-        </div>
-    </nav>
+                    <div class="hidden md:flex items-center gap-8">
+                        <button onclick="setView('home')" id="nav-home" class="font-bold text-sm text-brand-primary">المتجر الذكي</button>
+                        <a href="#products" class="text-slate-500 hover:text-brand-primary text-sm font-semibold transition-colors">الحلول الجاهزة</a>
+                        <button onclick="setView('contact')" id="nav-contact" class="text-slate-500 hover:text-brand-primary text-sm font-semibold transition-colors">استشارة تقنية</button>
+                        
+                        <div class="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
+                            <button onclick="setLang('en')" class="lang-btn en px-3 py-1 rounded-full text-[10px] font-bold">EN</button>
+                            <button onclick="setLang('ar')" class="lang-btn ar px-3 py-1 rounded-full text-[10px] font-bold bg-brand-primary text-white">AR</button>
+                        </div>
 
-    <header class="py-20 text-center">
-        <h1 class="text-6xl font-black text-slate-900 mb-4">متجر <span class="text-indigo-600">CogniStore</span></h1>
-        <p class="text-xl text-slate-500">ذكاء اصطناعي يفهم عملك.</p>
-    </header>
-    </body>
+                        <button class="relative p-2.5 text-slate-700 hover:bg-slate-100 rounded-full transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                            <span class="absolute top-0 right-0 bg-brand-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="pt-20">
+            <section class="py-24 px-4 text-center bg-gradient-to-b from-white to-[#f8fafc]">
+                <div class="max-w-4xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-brand-primary text-[10px] font-bold mb-6 border border-indigo-100 tracking-widest uppercase">
+                        Next-Gen Automation
+                    </div>
+                    <h1 id="hero-title" class="text-5xl md:text-7xl font-black mb-8 tracking-tight text-slate-900 leading-[1.1]">
+                        حوّل أعمالك إلى منظومة <span class="text-brand-primary">ذكية</span>
+                    </h1>
+                    <p id="hero-subtitle" class="text-xl text-slate-500 mb-12 font-medium max-w-2xl mx-auto leading-relaxed">
+                        متجر CogniStore يوفر لك قوالب أتمتة متطورة وحلول ذكاء اصطناعي مصممة للنمو السريع.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#products" id="hero-cta-primary" class="px-10 py-5 bg-brand-primary text-white rounded-2xl font-bold shadow-xl shadow-indigo-100 hover:bg-indigo-700 hover:-translate-y-1 transition-all">تصفح المكتبة الذكية</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="products" class="py-24 max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                    <div>
+                        <h2 id="prod-heading" class="text-4xl font-black tracking-tight text-slate-900">أحدث القوالب والحلول</h2>
+                        <p id="prod-subheading" class="text-slate-500 mt-2 text-lg">حلول جاهزة للنشر الفوري</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="product-card bg-white rounded-3xl border border-slate-200 overflow-hidden transition-all shadow-sm hover:shadow-2xl">
+                        <div class="h-52 bg-slate-50 flex items-center justify-center relative border-b border-slate-100">
+                            <span class="absolute top-5 left-5 bg-brand-primary text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg">PREMIUM</span>
+                            <div class="text-5xl">🤖</div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-slate-900">قالب خدمة عملاء AI</h3>
+                                <span class="text-brand-primary font-black text-xl">$49</span>
+                            </div>
+                            <p class="text-slate-500 text-sm mb-8 leading-relaxed">قالب متكامل يربط Chatwoot مع Gemini و n8n للرد الآلي الذكي.</p>
+                            <button class="w-full py-4 bg-slate-900 text-white rounded-2xl text-sm font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-3xl border border-slate-200 overflow-hidden transition-all shadow-sm hover:shadow-2xl">
+                        <div class="h-52 bg-slate-50 flex items-center justify-center relative border-b border-slate-100">
+                            <div class="text-5xl">📱</div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-slate-900">نظام أتمتة واتساب</h3>
+                                <span class="text-brand-primary font-black text-xl">$89</span>
+                            </div>
+                            <p class="text-slate-500 text-sm mb-8 leading-relaxed">أرسل تنبيهات تلقائية لعملائك عبر Evolution API و n8n.</p>
+                            <button class="w-full py-4 bg-slate-900 text-white rounded-2xl text-sm font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-3xl border border-slate-200 overflow-hidden transition-all shadow-sm hover:shadow-2xl">
+                        <div class="h-52 bg-slate-50 flex items-center justify-center relative border-b border-slate-100">
+                            <div class="text-5xl">⚙️</div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-slate-900">إعداد سيرفر كامل</h3>
+                                <span class="text-brand-primary font-black text-xl">$199</span>
+                            </div>
+                            <p class="text-slate-500 text-sm mb-8 leading-relaxed">تثبيت احترافي لجميع الأنظمة على خادمك الخاص (VPS) مع الحماية.</p>
+                            <button class="w-full py-4 bg-slate-900 text-white rounded-2xl text-sm font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                                احجز الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-white border-t border-slate-200 py-16 text-center">
+            <div class="mb-6 flex justify-center items-center gap-2">
+                <div class="w-6 h-6 bg-slate-200 rounded-md"></div>
+                <span class="font-black text-lg text-slate-400">CogniStore</span>
+            </div>
+            <p id="footer-rights" class="text-slate-400 text-sm font-medium tracking-wide italic">© 2026 CogniStore. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Cognitive Business Automation",
+                sub: "CogniStore provides advanced AI templates and automation flows designed for rapid scale.",
+                navHome: "Smart Store", navContact: "Tech Consult",
+                heroCta: "Explore Library",
+                prodH: "Latest Intelligence",
+                prodSub: "Ready-to-deploy cognitive assets",
+                rights: "© 2026 CogniStore. All rights reserved.",
+                dir: 'ltr'
+            },
+            ar: {
+                title: "حوِّل أعمالك إلى منظومة ذكية",
+                sub: "متجر CogniStore يوفر لك قوالب أتمتة متطورة وحلول ذكاء اصطناعي مصممة للنمو السريع.",
+                navHome: "المتجر الذكي", navContact: "استشارة تقنية",
+                heroCta: "تصفح المكتبة الذكية",
+                prodH: "أحدث القوالب والحلول",
+                prodSub: "حلول جاهزة للنشر الفوري",
+                rights: "© 2026 CogniStore. جميع الحقوق محفوظة.",
+                dir: 'rtl'
+            }
+        };
+
+        function setLang(l) {
+            const t = translations[l];
+            document.documentElement.dir = t.dir;
+            document.body.className = t.dir === 'rtl' ? 'rtl bg-[#f8fafc]' : 'ltr bg-[#f8fafc]';
+            
+            document.getElementById('hero-title').innerText = t.title;
+            document.getElementById('hero-subtitle').innerText = t.sub;
+            document.getElementById('nav-home').innerText = t.navHome;
+            document.getElementById('nav-contact').innerText = t.navContact;
+            document.getElementById('hero-cta-primary').innerText = t.heroCta;
+            document.getElementById('prod-heading').innerText = t.prodH;
+            document.getElementById('prod-subheading').innerText = t.prodSub;
+            document.getElementById('footer-rights').innerText = t.rights;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('bg-brand-primary', 'text-white'));
+            document.querySelector(`.lang-btn.${l}`).classList.add('bg-brand-primary', 'text-white');
+        }
+
+        // Chatwoot remains active
+        (function(d,t) {
+            var BASE_URL="https://chatwoot.panel.sabrimed.shop";
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=BASE_URL+"/packs/js/sdk.js";
+            g.defer = true; g.async = true;
+            s.parentNode.insertBefore(g,s);
+            g.onload=function(){
+                window.chatwootSDK.run({
+                    websiteToken: 'G1L1GrBoV3NZRGxZPrdj9gsR',
+                    baseUrl: BASE_URL
+                })
+            }
+        })(document,"script");
+    </script>
+</body>
 </html>
